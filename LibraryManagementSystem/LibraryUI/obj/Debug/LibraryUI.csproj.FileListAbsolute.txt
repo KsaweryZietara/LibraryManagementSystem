@@ -1,0 +1,15 @@
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\bin\Debug\LibraryUI.exe.config
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\bin\Debug\LibraryUI.exe
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\bin\Debug\LibraryUI.pdb
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.csproj.AssemblyReference.cache
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.Properties.Resources.resources
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.csproj.GenerateResource.cache
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.csproj.CoreCompileInputs.cache
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.exe
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.pdb
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.SignInform.resources
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.SignUpForm.resources
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.AdminForm.resources
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.AllBooksForm.resources
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.NewBookForm.resources
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.UserForm.resources
