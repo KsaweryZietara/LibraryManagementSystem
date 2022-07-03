@@ -1,16 +1,22 @@
-﻿using System;
+﻿using ClassLibrary.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ClassLibrary {
     public static class GlobalConfig {
         public static IDataConnection Connection { get; private set; }
-        public static void InitializeDataConnection(string dataBaseType) {
-            if (dataBaseType == "textFile") {
+
+        /// <summary>
+        /// Function initialize type of the data connection for the app.
+        /// </summary>
+        /// <param name="e">Enum which represent type of data connection.</param>
+        public static void InitializeDataConnection(Enums e) {
+            if (e == Enums.textFile) {
                 Connection = new TextFileConnector(); 
             }
             
-            if (dataBaseType == "sql") {
+            else if (e == Enums.sql) {
 
             }
         }

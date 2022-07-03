@@ -14,7 +14,7 @@ namespace LibraryUI {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ClassLibrary.GlobalConfig.InitializeDataConnection("textFile");
+            ClassLibrary.GlobalConfig.InitializeDataConnection(ClassLibrary.Enums.textFile);
 
             Application.Run(new SignUpForm());
         }

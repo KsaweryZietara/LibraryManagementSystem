@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,23 +16,25 @@ namespace LibraryUI {
             InitializeComponent();
         }
 
-        private void SignUpForm_Load(object sender, EventArgs e) {
-
-        }
-
         private void signUpButton_Click(object sender, EventArgs e) {
 
             if (ValidateForm()) {
+                List<int> l = new List<int>() { 0 };
 
-                UserModel model = new UserModel(loginText.Text, 
-                    passwordText.Text, 
-                    firstNameText.Text, 
-                    lastNameText.Text, 
-                    phoneNumberText.Text, 
-                    emailText.Text);
+                UserModel model = new UserModel(loginText.Text,
+                    passwordText.Text.PasswordHashing(),
+                    l,
+                    firstNameText.Text,
+                    lastNameText.Text,
+                    phoneNumberText.Text,
+                    emailText.Text); 
 
-                //save to text file
-
+                GlobalConfig.Connection.CreateUser(model);
+            }
+            else {
+                string message = "Incorrect data.";
+                string title = "Error";
+                MessageBox.Show(message, title);
             }
 
         }
@@ -43,11 +46,23 @@ namespace LibraryUI {
                 output = false;
             }
 
+            if (firstNameText.Text.Any(char.IsDigit)) {
+                output = false;
+            }
+
             if (lastNameText.Text.Length == 0) {
                 output = false;
             }
 
-            if (phoneNumberText.Text.Length == 0) {
+            if (lastNameText.Text.Any(char.IsDigit)) {
+                output = false;
+            }
+
+            if (phoneNumberText.Text.Length != 9) {
+                output = false;
+            }
+
+            if (phoneNumberText.Text.Any(x => char.IsLetter(x))) {
                 output = false;
             }
 
@@ -55,11 +70,26 @@ namespace LibraryUI {
                 output = false;
             }
 
-            if(loginText.Text.Length == 0) {
+            int indexOfAt = emailText.Text.IndexOf('@');
+            int indexOfDot = emailText.Text.IndexOf('.');
+
+            if (indexOfAt < 0 || indexOfDot < 0) {
                 output = false;
             }
 
-            if(passwordText.Text.Length == 0) {
+            if (indexOfAt > indexOfDot) {
+                output = false;
+            }
+
+            if (indexOfDot > emailText.Text.Length-4) {
+                output = false;
+            }
+
+            if (loginText.Text.Length == 0) {
+                output = false;
+            }
+
+            if (passwordText.Text.Length == 0) {
                 output = false;
             }
 

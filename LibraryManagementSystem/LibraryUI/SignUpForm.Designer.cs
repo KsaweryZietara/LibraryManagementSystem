@@ -197,7 +197,6 @@ namespace LibraryUI {
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "SignUpForm";
             this.Text = "Sign up";
-            this.Load += new System.EventHandler(this.SignUpForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

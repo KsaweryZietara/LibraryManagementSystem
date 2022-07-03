@@ -4,3 +4,12 @@ C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\obj\D
 C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
 C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\obj\Debug\ClassLibrary.dll
 C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\bin\Debug\System.Security.AccessControl.dll
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\bin\Debug\System.Security.Permissions.dll
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\bin\Debug\System.Security.AccessControl.xml
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\bin\Debug\System.Security.Permissions.xml
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\ClassLibrary\obj\Debug\ClassLibrary.csproj.CopyComplete
