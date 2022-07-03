@@ -13,3 +13,6 @@ C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debu
 C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.AllBooksForm.resources
 C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.NewBookForm.resources
 C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.UserForm.resources
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\bin\Debug\ClassLibrary.dll
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\bin\Debug\ClassLibrary.pdb
+C:\Users\User\LibraryManagementSystem\LibraryManagementSystem\LibraryUI\obj\Debug\LibraryUI.csproj.CopyComplete

@@ -13,7 +13,10 @@ namespace LibraryUI {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignInForm());
+
+            ClassLibrary.GlobalConfig.InitializeDataConnection("textFile");
+
+            Application.Run(new SignUpForm());
         }
     }
 }

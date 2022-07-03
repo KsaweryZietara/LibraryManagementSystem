@@ -170,6 +170,7 @@ namespace LibraryUI {
             this.signUpButton.TabIndex = 16;
             this.signUpButton.Text = "Sign up";
             this.signUpButton.UseVisualStyleBackColor = false;
+            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
             // SignUpForm
             // 
