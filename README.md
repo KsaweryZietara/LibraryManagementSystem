@@ -1,2 +1,2 @@
 # LibraryManagementSystem
-A library application with SQL database, developed in C# (WinForms).
+A library management application with SQL and text file databases, developed in C# (WinForms).
