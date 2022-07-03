@@ -8,5 +8,7 @@ namespace ClassLibrary.DataAccess {
 
         void CreateUser(UserModel user);
 
+        UserModel UserLogIn(UserModel user);
+
     }
 }

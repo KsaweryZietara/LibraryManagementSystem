@@ -30,5 +30,28 @@ namespace ClassLibrary.DataAccess {
                 users.SaveToUserFile(UsersFile);
             }
         }
+
+        /// <summary>
+        /// Function check if user with input login and password exist.  
+        /// </summary>
+        /// <param name="user">User model</param>
+        /// <returns>User model if the user exist or null, if not.</returns>
+        public UserModel UserLogIn(UserModel user) {
+
+            List<UserModel> users = UsersFile.FullFilePath().LoadFile().ConvertToUserModels();
+
+            UserModel u = null;
+
+            int index = users.FindIndex(x => x.Login == user.Login);
+
+            if (index > -1) {
+                if (user.Password.CheckPassword(users[index].Password)) {
+                    u = users[index];
+                }
+
+            }
+
+            return u;
+        } 
     }
 }

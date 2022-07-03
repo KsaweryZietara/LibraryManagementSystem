@@ -41,7 +41,12 @@ namespace ClassLibrary.Models {
         public string EmailAddress { get; set; }
 
         public UserModel() {
-                
+
+        }
+
+        public UserModel(string login, string password) {
+            Login = login;
+            Password = password;
         }
 
         public UserModel(string login, string password, List<int> booksId, string firstName, string lastName, string phoneNumber, string emailAddress) {

@@ -44,19 +44,22 @@ namespace ClassLibrary.DataAccess {
             foreach (string line in lines) {
 
                 string[] cols = line.Split(',');
+                
+                if (cols.Length == 7) {
+                    
+                    UserModel u = new UserModel();
+                    u.Login = cols[0];
+                    u.Password = cols[1];
 
-                UserModel u = new UserModel();
-                u.Login = cols[0];
-                u.Password = cols[1];
+                    u.BooksId = cols[2].Split('|').ToList().Select(s => int.Parse(s)).ToList();
 
-                u.BooksId = cols[2].Split('|').ToList().Select(s => int.Parse(s)).ToList();
+                    u.FirstName = cols[3];
+                    u.LastName = cols[4];
+                    u.PhoneNumber = cols[5];
+                    u.EmailAddress = cols[6];
 
-                u.FirstName = cols[3];
-                u.LastName = cols[4];
-                u.PhoneNumber = cols[5];
-                u.EmailAddress = cols[6];
-
-                output.Add(u);
+                    output.Add(u);
+                }
             }
 
             return output;

@@ -16,7 +16,7 @@ namespace LibraryUI {
 
             ClassLibrary.GlobalConfig.InitializeDataConnection(ClassLibrary.Enums.textFile);
 
-            Application.Run(new SignUpForm());
+            Application.Run(new SignInForm());
         }
     }
 }

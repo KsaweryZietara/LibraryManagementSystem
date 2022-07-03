@@ -67,6 +67,7 @@ namespace LibraryUI {
             // 
             this.passwordText.Location = new System.Drawing.Point(202, 203);
             this.passwordText.Name = "passwordText";
+            this.passwordText.PasswordChar = '*';
             this.passwordText.Size = new System.Drawing.Size(182, 35);
             this.passwordText.TabIndex = 4;
             // 
@@ -80,6 +81,7 @@ namespace LibraryUI {
             this.loginButton.TabIndex = 5;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // SignUpLabel
             // 
@@ -116,7 +118,7 @@ namespace LibraryUI {
             this.headerLabel.TabIndex = 0;
             this.headerLabel.Text = "Sign in ";
             // 
-            // SignInform
+            // SignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,7 +134,7 @@ namespace LibraryUI {
             this.Controls.Add(this.headerLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "SignInform";
+            this.Name = "SignInForm";
             this.Text = "Sign in";
             this.ResumeLayout(false);
             this.PerformLayout();
