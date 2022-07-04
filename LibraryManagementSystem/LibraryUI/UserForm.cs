@@ -18,9 +18,10 @@ namespace LibraryUI {
         public List<BookModel> UserBooks { get; set; } = new List<BookModel>();
 
         public UserForm() {
-            InitializeComponent();
-        }
 
+            InitializeComponent();
+
+        }
 
         private void UserForm_Load(object sender, EventArgs e) {
             
@@ -29,7 +30,9 @@ namespace LibraryUI {
             List<string> bookStrings = new List<string>();
 
             foreach (BookModel b in UserBooks) {
-                bookStrings.Add($"{b.Title} {b.Author} {b.Category}");
+                if (b.Owner == LoggedUser.Login) {
+                    bookStrings.Add($"{b.Title} {b.Author} {b.Category}");
+                }
             }
 
             booksListBox.DataSource = bookStrings;
@@ -37,9 +40,41 @@ namespace LibraryUI {
 
         private void returnButton_Click(object sender, EventArgs e) {
 
-            int indexOfSelected = booksListBox.SelectedIndex;
+            if (UserBooks.Count > 0) {
 
+                int indexOfSelected = booksListBox.SelectedIndex;
 
+                LoggedUser.BooksId.RemoveAll(x => x == UserBooks[indexOfSelected].Id);
+
+                GlobalConfig.Connection.UpdateUser(LoggedUser);
+
+                UserBooks[indexOfSelected].IsBorrowed = false;
+                UserBooks[indexOfSelected].Owner = "---";
+
+                GlobalConfig.Connection.UpdateBook(UserBooks[indexOfSelected]);
+
+                UserBooks.RemoveAll(x => x.Id == UserBooks[indexOfSelected].Id);
+
+                booksListBox.DataSource = null;
+
+                List<string> bookStrings = new List<string>();
+
+                foreach (BookModel b in UserBooks) {
+                    if (b.Owner == LoggedUser.Login) {
+                        bookStrings.Add($"{b.Title} {b.Author} {b.Category}");
+                    }
+                }
+
+                booksListBox.DataSource = bookStrings;
+            }
+            else {
+                string message = "You don't have books.";
+                string title = "Error";
+                MessageBox.Show(message, title);
+            }
+        }
+
+        private void Form1_FormClosing(Object sender, FormClosingEventArgs e) {
 
         }
     }

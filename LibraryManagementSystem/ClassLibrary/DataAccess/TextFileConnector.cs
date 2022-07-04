@@ -10,7 +10,7 @@ namespace ClassLibrary.DataAccess {
 
         private const string UsersFile = "UsersFile.csv";
 
-        private const string Books = "Books.csv";
+        private const string BooksFile = "BooksFile.csv";
 
         /// <summary>
         /// Saves user model to the text file if it is possible.
@@ -63,11 +63,33 @@ namespace ClassLibrary.DataAccess {
         /// <returns>List of the user books models which satisfied the condition.</returns>
         public List<BookModel> GetUserBooks(UserModel user) {
 
-            List<BookModel> books = Books.FullFilePath().LoadFile().ConvertToBookModels();
+            List<BookModel> books = BooksFile.FullFilePath().LoadFile().ConvertToBookModels();
 
             List<BookModel> userBooks = books.Where(x => user.BooksId.Any(y => y == x.Id)).ToList();
 
             return userBooks;
+        }
+
+        public void UpdateUser(UserModel user) {
+            
+            List<UserModel> users = UsersFile.FullFilePath().LoadFile().ConvertToUserModels();
+
+            int indexOfUser = users.FindIndex(x => x.Login == user.Login);
+
+            users[indexOfUser] = user;
+
+            users.SaveToUserFile(UsersFile);
+        }
+
+        public void UpdateBook(BookModel book) {
+
+            List<BookModel> books = BooksFile.FullFilePath().LoadFile().ConvertToBookModels();
+
+            int indexOfUser = books.FindIndex(x => x.Id == book.Id);
+
+            books[indexOfUser] = book;
+
+            books.SaveToBookFile(BooksFile);
         }
     }
 }

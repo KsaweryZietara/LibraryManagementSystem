@@ -83,7 +83,9 @@ namespace ClassLibrary.DataAccess {
                     booksId += '|';
                 }
 
-                booksId = booksId.Substring(0, booksId.Length - 1);
+                if (booksId.Length > 1) {
+                    booksId = booksId.Substring(0, booksId.Length - 1);
+                }
 
                 lines.Add($"{u.Login},{u.Password},{booksId},{u.FirstName},{u.LastName},{u.PhoneNumber},{u.EmailAddress}");
             }
@@ -113,7 +115,7 @@ namespace ClassLibrary.DataAccess {
                     b.Author = cols[2];
                     b.Category = cols[3];
                     
-                    if(cols[4] == "true") {
+                    if(cols[4] == "True") {
                         b.IsBorrowed = true;
                     }
                     else {
@@ -127,6 +129,18 @@ namespace ClassLibrary.DataAccess {
             }
 
             return output;
+        }
+
+        public static void SaveToBookFile(this List<BookModel> books, string fileName) {
+
+            List<string> lines = new List<string>();
+
+            foreach (BookModel b in books) {
+
+                lines.Add($"{b.Id},{b.Title},{b.Author},{b.Category},{b.IsBorrowed},{b.Owner}");
+            }
+
+            File.WriteAllLines(fileName.FullFilePath(), lines);
         }
 
     }
