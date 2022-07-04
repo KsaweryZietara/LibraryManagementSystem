@@ -13,6 +13,8 @@ using System.Windows.Forms;
 namespace LibraryUI {
     public partial class SignInForm : Form {
 
+        public UserModel LoggedUser { get; set; }
+
         public SignInForm() {
             InitializeComponent();
         }
@@ -27,15 +29,12 @@ namespace LibraryUI {
                 
                 if(u2 != null) {
 
-                    this.Hide();
+                    LoggedUser = u2;
 
                     loginText.Text = "";
                     passwordText.Text = "";
 
-                    UserForm frm = new UserForm();
-                    frm.LoggedUser = u2;
-                    frm.Show();
-
+                    this.Close();
                 }
                 else {
                     string message = "Invalid login or password.";
@@ -72,8 +71,6 @@ namespace LibraryUI {
             SignUpForm frm = new SignUpForm();
 
             frm.Show();
-
-            
         }
     }
 }

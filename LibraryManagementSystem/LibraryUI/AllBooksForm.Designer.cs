@@ -47,11 +47,12 @@ namespace LibraryUI {
             // booksListBox
             // 
             this.booksListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.booksListBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.booksListBox.FormattingEnabled = true;
-            this.booksListBox.ItemHeight = 30;
+            this.booksListBox.ItemHeight = 17;
             this.booksListBox.Location = new System.Drawing.Point(12, 62);
             this.booksListBox.Name = "booksListBox";
-            this.booksListBox.Size = new System.Drawing.Size(415, 392);
+            this.booksListBox.Size = new System.Drawing.Size(415, 376);
             this.booksListBox.TabIndex = 4;
             // 
             // keyWordText
@@ -82,6 +83,7 @@ namespace LibraryUI {
             this.searchButton.TabIndex = 8;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // showAllBooksButton
             // 
@@ -93,6 +95,7 @@ namespace LibraryUI {
             this.showAllBooksButton.TabIndex = 9;
             this.showAllBooksButton.Text = "Show all books";
             this.showAllBooksButton.UseVisualStyleBackColor = false;
+            this.showAllBooksButton.Click += new System.EventHandler(this.showAllBooksButton_Click);
             // 
             // borrowButton
             // 
@@ -104,6 +107,7 @@ namespace LibraryUI {
             this.borrowButton.TabIndex = 10;
             this.borrowButton.Text = "Borrow selected book";
             this.borrowButton.UseVisualStyleBackColor = false;
+            this.borrowButton.Click += new System.EventHandler(this.borrowButton_Click);
             // 
             // AllBooksForm
             // 
@@ -123,6 +127,7 @@ namespace LibraryUI {
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "AllBooksForm";
             this.Text = "Borrow new book";
+            this.Load += new System.EventHandler(this.AllBooksForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

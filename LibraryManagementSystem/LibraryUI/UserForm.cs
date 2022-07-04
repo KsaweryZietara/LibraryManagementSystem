@@ -24,18 +24,12 @@ namespace LibraryUI {
         }
 
         private void UserForm_Load(object sender, EventArgs e) {
-            
+
+            loginLabel.Text = LoggedUser.Login;
+
             UserBooks = GlobalConfig.Connection.GetUserBooks(LoggedUser);
 
-            List<string> bookStrings = new List<string>();
-
-            foreach (BookModel b in UserBooks) {
-                if (b.Owner == LoggedUser.Login) {
-                    bookStrings.Add($"{b.Title} {b.Author} {b.Category}");
-                }
-            }
-
-            booksListBox.DataSource = bookStrings;
+            RefreshListBox();
         }
 
         private void returnButton_Click(object sender, EventArgs e) {
@@ -55,17 +49,7 @@ namespace LibraryUI {
 
                 UserBooks.RemoveAll(x => x.Id == UserBooks[indexOfSelected].Id);
 
-                booksListBox.DataSource = null;
-
-                List<string> bookStrings = new List<string>();
-
-                foreach (BookModel b in UserBooks) {
-                    if (b.Owner == LoggedUser.Login) {
-                        bookStrings.Add($"{b.Title} {b.Author} {b.Category}");
-                    }
-                }
-
-                booksListBox.DataSource = bookStrings;
+                RefreshListBox();
             }
             else {
                 string message = "You don't have books.";
@@ -74,8 +58,33 @@ namespace LibraryUI {
             }
         }
 
-        private void Form1_FormClosing(Object sender, FormClosingEventArgs e) {
+        private void borrowButton_Click(object sender, EventArgs e) {
+            
+            AllBooksForm frm = new AllBooksForm();
 
+            frm.LoggedUser = LoggedUser;
+
+            frm.ShowDialog();
+
+            UserBooks = GlobalConfig.Connection.GetUserBooks(LoggedUser);
+
+            RefreshListBox();
         }
+
+        private void RefreshListBox() {
+           
+            booksListBox.DataSource = null;
+
+            List<string> bookStrings = new List<string>();
+
+            foreach (BookModel b in UserBooks) {
+                if (b.Owner == LoggedUser.Login) {
+                    bookStrings.Add($"{b.Title}  {b.Author}  {b.Category}");
+                }
+            }
+
+            booksListBox.DataSource = bookStrings;
+        }
+
     }
 }

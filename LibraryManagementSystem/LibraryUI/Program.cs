@@ -17,10 +17,11 @@ namespace LibraryUI {
             ClassLibrary.GlobalConfig.InitializeDataConnection(ClassLibrary.Enums.textFile);
 
             SignInForm signInForm = new SignInForm();
-            
+            Application.Run(signInForm);
 
-
-            Application.Run(new SignInForm());
+            UserForm userForm = new UserForm();
+            userForm.LoggedUser = signInForm.LoggedUser;
+            Application.Run(userForm);
         }
     }
 }

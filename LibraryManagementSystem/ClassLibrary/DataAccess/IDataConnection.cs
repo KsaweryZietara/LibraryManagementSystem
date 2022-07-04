@@ -15,5 +15,7 @@ namespace ClassLibrary.DataAccess {
         void UpdateUser(UserModel user);
 
         void UpdateBook(BookModel book);
+
+        List<BookModel> GetAvailableBooks();
     }
 }

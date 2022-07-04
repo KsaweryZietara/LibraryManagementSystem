@@ -28,6 +28,8 @@ namespace LibraryUI {
             this.headerLabel = new System.Windows.Forms.Label();
             this.returnButton = new System.Windows.Forms.Button();
             this.borrowButton = new System.Windows.Forms.Button();
+            this.loginLabel = new System.Windows.Forms.Label();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // booksListBox
@@ -74,6 +76,28 @@ namespace LibraryUI {
             this.borrowButton.TabIndex = 7;
             this.borrowButton.Text = "Borrow new book";
             this.borrowButton.UseVisualStyleBackColor = false;
+            this.borrowButton.Click += new System.EventHandler(this.borrowButton_Click);
+            // 
+            // loginLabel
+            // 
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.loginLabel.Location = new System.Drawing.Point(715, 9);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(45, 21);
+            this.loginLabel.TabIndex = 8;
+            this.loginLabel.Text = "login";
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.BackColor = System.Drawing.Color.White;
+            this.refreshButton.ForeColor = System.Drawing.Color.Green;
+            this.refreshButton.Location = new System.Drawing.Point(464, 159);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(224, 59);
+            this.refreshButton.TabIndex = 9;
+            this.refreshButton.Text = "Refresh you books";
+            this.refreshButton.UseVisualStyleBackColor = false;
             // 
             // UserForm
             // 
@@ -81,6 +105,8 @@ namespace LibraryUI {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(779, 468);
+            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.borrowButton);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.headerLabel);
@@ -92,6 +118,7 @@ namespace LibraryUI {
             this.Text = "User panel";
             this.Load += new System.EventHandler(this.UserForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -101,5 +128,7 @@ namespace LibraryUI {
         private System.Windows.Forms.Label headerLabel;
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button borrowButton;
+        private System.Windows.Forms.Label loginLabel;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

@@ -91,5 +91,14 @@ namespace ClassLibrary.DataAccess {
 
             books.SaveToBookFile(BooksFile);
         }
+
+        public List<BookModel> GetAvailableBooks() {
+
+            List<BookModel> books = BooksFile.FullFilePath().LoadFile().ConvertToBookModels();
+
+            var output = books.Where(x => !x.IsBorrowed).ToList();
+
+            return output;
+        }
     }
 }
