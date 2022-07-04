@@ -6,6 +6,11 @@ namespace ClassLibrary.Models {
     public class BookModel {
 
         /// <summary>
+        /// Represents book id.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Represents title of the book.
         /// </summary>
         public string Title { get; set; }

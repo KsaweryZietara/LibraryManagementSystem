@@ -33,11 +33,12 @@ namespace LibraryUI {
             // booksListBox
             // 
             this.booksListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.booksListBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.booksListBox.FormattingEnabled = true;
-            this.booksListBox.ItemHeight = 30;
+            this.booksListBox.ItemHeight = 17;
             this.booksListBox.Location = new System.Drawing.Point(12, 62);
             this.booksListBox.Name = "booksListBox";
-            this.booksListBox.Size = new System.Drawing.Size(415, 392);
+            this.booksListBox.Size = new System.Drawing.Size(415, 376);
             this.booksListBox.TabIndex = 0;
             // 
             // headerLabel
@@ -61,6 +62,7 @@ namespace LibraryUI {
             this.returnButton.TabIndex = 6;
             this.returnButton.Text = "Return selected book";
             this.returnButton.UseVisualStyleBackColor = false;
+            this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
             // borrowButton
             // 
@@ -88,6 +90,7 @@ namespace LibraryUI {
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "UserForm";
             this.Text = "User panel";
+            this.Load += new System.EventHandler(this.UserForm_Load);
             this.ResumeLayout(false);
 
         }

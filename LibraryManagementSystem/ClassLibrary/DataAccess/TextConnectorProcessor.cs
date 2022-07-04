@@ -11,7 +11,7 @@ namespace ClassLibrary.DataAccess {
     public static class TextConnectorProcessor {
 
         /// <summary>
-        /// Function add a path to the file name.
+        /// Adds a path to the file name.
         /// </summary>
         /// <param name="fileName">Name of the text file.</param>
         /// <returns>Text file name with path added.</returns>
@@ -20,7 +20,7 @@ namespace ClassLibrary.DataAccess {
         }
 
         /// <summary>
-        /// Function convert content of the text file to a list of strings.
+        /// Converts content of the text file to a list of strings.
         /// </summary>
         /// <param name="file">Name of the text file.</param>
         /// <returns>List of strings extracted from the text file.</returns>
@@ -33,10 +33,10 @@ namespace ClassLibrary.DataAccess {
         }
 
         /// <summary>
-        /// Function convert list of string to a list of user models.
+        /// Converts list of string to a list of users models.
         /// </summary>
         /// <param name="lines">List of strings which contains users models.</param>
-        /// <returns>List of user models.</returns>
+        /// <returns>List of users models.</returns>
         public static List<UserModel> ConvertToUserModels(this List<string> lines) {
 
             List<UserModel> output = new List<UserModel>();
@@ -66,9 +66,9 @@ namespace ClassLibrary.DataAccess {
         }
 
         /// <summary>
-        /// Function save list of users models to the text file.
+        /// Saves list of users models to the text file.
         /// </summary>
-        /// <param name="users">List of user models.</param>
+        /// <param name="users">List of users models.</param>
         /// <param name="fileName">Name of the text file.</param>
         public static void SaveToUserFile(this List<UserModel> users, string fileName) {
 
@@ -89,6 +89,44 @@ namespace ClassLibrary.DataAccess {
             }
 
             File.WriteAllLines(fileName.FullFilePath(), lines);
+        }
+
+        /// <summary>
+        /// Convert list of string to a list of books models.
+        /// </summary>
+        /// <param name="lines">List of strings which contains books models.</param>
+        /// <returns>List of books models.</returns>
+        public static List<BookModel> ConvertToBookModels(this List<string> lines) {
+
+            List<BookModel> output = new List<BookModel>();
+
+            foreach (string line in lines) {
+
+                string[] cols = line.Split(',');
+
+                if (cols.Length == 6) {
+
+                    BookModel b = new BookModel();
+                    
+                    b.Id = Int32.Parse(cols[0]);
+                    b.Title = cols[1];
+                    b.Author = cols[2];
+                    b.Category = cols[3];
+                    
+                    if(cols[4] == "true") {
+                        b.IsBorrowed = true;
+                    }
+                    else {
+                        b.IsBorrowed = false;
+                    }
+
+                    b.Owner = cols[5];
+                    
+                    output.Add(b);
+                }
+            }
+
+            return output;
         }
 
     }

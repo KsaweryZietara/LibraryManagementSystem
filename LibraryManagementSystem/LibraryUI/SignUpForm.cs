@@ -30,6 +30,8 @@ namespace LibraryUI {
                     emailText.Text); 
 
                 GlobalConfig.Connection.CreateUser(model);
+
+                this.Close();
             }
             else {
                 string message = "Incorrect data.";

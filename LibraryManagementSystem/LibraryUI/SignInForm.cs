@@ -22,10 +22,19 @@ namespace LibraryUI {
 
                 UserModel u1 = new UserModel(loginText.Text, passwordText.Text);
 
-                UserModel u2 = GlobalConfig.Connection.UserLogIn(u1);
+                UserModel u2 = GlobalConfig.Connection.ValidUser(u1);
                 
                 if(u2 != null) {
-                    GlobalConfig.UserLogIn(u2);
+
+                    this.Hide();
+
+                    loginText.Text = "";
+                    passwordText.Text = "";
+
+                    UserForm frm = new UserForm();
+                    frm.LoggedUser = u2;
+                    frm.Show();
+
                 }
                 else {
                     string message = "Invalid login or password.";
@@ -55,6 +64,15 @@ namespace LibraryUI {
             }
 
             return output;
+        }
+
+        private void signUpButton_Click(object sender, EventArgs e) {
+
+            SignUpForm frm = new SignUpForm();
+
+            frm.Show();
+
+            
         }
     }
 }
