@@ -9,7 +9,7 @@ namespace ClassLibrary {
     /// <summary>
     /// Represents types of data bases.
     /// </summary>
-    public enum Enums {
+    public enum DataBase {
         textFile,
         sql
     }

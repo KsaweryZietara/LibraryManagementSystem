@@ -14,14 +14,23 @@ namespace LibraryUI {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ClassLibrary.GlobalConfig.InitializeDataConnection(ClassLibrary.Enums.textFile);
+            ClassLibrary.GlobalConfig.InitializeDataConnection(ClassLibrary.DataBase.textFile);
 
             SignInForm signInForm = new SignInForm();
             Application.Run(signInForm);
 
-            UserForm userForm = new UserForm();
-            userForm.LoggedUser = signInForm.LoggedUser;
-            Application.Run(userForm);
+            if (signInForm.LoggedUser == null) {
+                return;
+            }
+            else if (signInForm.LoggedUser.Login == "admin") {
+                AdminForm adminForm = new AdminForm();
+                Application.Run(adminForm);
+            }
+            else {
+                UserForm userForm = new UserForm();
+                userForm.LoggedUser = signInForm.LoggedUser;
+                Application.Run(userForm);
+            }
         }
     }
 }

@@ -25,13 +25,13 @@ namespace LibraryUI {
         /// </summary>
         private void InitializeComponent() {
             this.createButton = new System.Windows.Forms.Button();
-            this.categoryText = new System.Windows.Forms.TextBox();
             this.categoryLabel = new System.Windows.Forms.Label();
             this.authorText = new System.Windows.Forms.TextBox();
             this.authorLabel = new System.Windows.Forms.Label();
             this.titleText = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.headerLabel = new System.Windows.Forms.Label();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // createButton
@@ -44,13 +44,7 @@ namespace LibraryUI {
             this.createButton.TabIndex = 30;
             this.createButton.Text = "Create";
             this.createButton.UseVisualStyleBackColor = false;
-            // 
-            // categoryText
-            // 
-            this.categoryText.Location = new System.Drawing.Point(272, 257);
-            this.categoryText.Name = "categoryText";
-            this.categoryText.Size = new System.Drawing.Size(238, 35);
-            this.categoryText.TabIndex = 23;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // categoryLabel
             // 
@@ -110,14 +104,24 @@ namespace LibraryUI {
             this.headerLabel.TabIndex = 17;
             this.headerLabel.Text = "New book";
             // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.BackColor = System.Drawing.Color.White;
+            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(272, 257);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(238, 38);
+            this.categoryComboBox.TabIndex = 31;
+            // 
             // NewBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(779, 468);
+            this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.createButton);
-            this.Controls.Add(this.categoryText);
             this.Controls.Add(this.categoryLabel);
             this.Controls.Add(this.authorText);
             this.Controls.Add(this.authorLabel);
@@ -129,6 +133,7 @@ namespace LibraryUI {
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "NewBookForm";
             this.Text = "New book";
+            this.Load += new System.EventHandler(this.NewBookForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,12 +142,12 @@ namespace LibraryUI {
         #endregion
 
         private System.Windows.Forms.Button createButton;
-        private System.Windows.Forms.TextBox categoryText;
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.TextBox authorText;
         private System.Windows.Forms.Label authorLabel;
         private System.Windows.Forms.TextBox titleText;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label headerLabel;
+        private System.Windows.Forms.ComboBox categoryComboBox;
     }
 }

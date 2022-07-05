@@ -51,7 +51,9 @@ namespace ClassLibrary.DataAccess {
                     u.Login = cols[0];
                     u.Password = cols[1];
 
-                    u.BooksId = cols[2].Split('|').ToList().Select(s => int.Parse(s)).ToList();
+                    if (cols[2].Length > 0) {
+                        u.BooksId = cols[2].Split('|').ToList().Select(s => int.Parse(s)).ToList();
+                    }
 
                     u.FirstName = cols[3];
                     u.LastName = cols[4];

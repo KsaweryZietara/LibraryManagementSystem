@@ -100,5 +100,34 @@ namespace ClassLibrary.DataAccess {
 
             return output;
         }
+
+        public List<BookModel> GetBooks() {
+            return BooksFile.FullFilePath().LoadFile().ConvertToBookModels();
+        }
+
+        public void UpdateListOfBooks(List<BookModel> list) {
+            list.SaveToBookFile(BooksFile);
+        }
+
+        public List<UserModel> GetUsers() {
+            return UsersFile.FullFilePath().LoadFile().ConvertToUserModels();
+        }
+
+        public void CreateBook(BookModel book) {
+
+            List<BookModel> books = BooksFile.FullFilePath().LoadFile().ConvertToBookModels();
+
+            int highestIndex = books.Max(x => x.Id);
+
+            book.Id = highestIndex + 1;
+
+            book.IsBorrowed = false;
+
+            book.Owner = "---";
+
+            books.Add(book);
+
+            books.SaveToBookFile(BooksFile);
+        }
     }
 }

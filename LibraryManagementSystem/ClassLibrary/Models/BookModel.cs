@@ -34,5 +34,14 @@ namespace ClassLibrary.Models {
         /// Represents who borrowed the book.
         /// </summary>
         public string Owner { get; set; }
+
+        public BookModel() {
+        }
+
+        public BookModel(string title, string author, string category) {
+            Title = title;
+            Author = author;
+            Category = category;
+        }
     }
 }

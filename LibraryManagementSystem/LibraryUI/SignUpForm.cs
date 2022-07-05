@@ -19,7 +19,7 @@ namespace LibraryUI {
         private void signUpButton_Click(object sender, EventArgs e) {
 
             if (ValidateForm()) {
-                List<int> l = new List<int>() { 0 };
+                List<int> l = new List<int>();
 
                 UserModel model = new UserModel(loginText.Text,
                     passwordText.Text.PasswordHashing(),

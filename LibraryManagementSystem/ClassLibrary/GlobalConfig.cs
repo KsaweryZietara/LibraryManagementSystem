@@ -12,12 +12,12 @@ namespace ClassLibrary {
         /// Function initialize type of the data connection for the app.
         /// </summary>
         /// <param name="e">Enum which represent type of data connection.</param>
-        public static void InitializeDataConnection(Enums e) {
-            if (e == Enums.textFile) {
+        public static void InitializeDataConnection(DataBase e) {
+            if (e == DataBase.textFile) {
                 Connection = new TextFileConnector(); 
             }
             
-            else if (e == Enums.sql) {
+            else if (e == DataBase.sql) {
 
             }
         }

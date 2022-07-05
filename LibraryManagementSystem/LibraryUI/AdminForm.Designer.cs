@@ -44,11 +44,12 @@ namespace LibraryUI {
             // booksListBox
             // 
             this.booksListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.booksListBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.booksListBox.FormattingEnabled = true;
-            this.booksListBox.ItemHeight = 30;
+            this.booksListBox.ItemHeight = 17;
             this.booksListBox.Location = new System.Drawing.Point(12, 62);
             this.booksListBox.Name = "booksListBox";
-            this.booksListBox.Size = new System.Drawing.Size(415, 392);
+            this.booksListBox.Size = new System.Drawing.Size(415, 376);
             this.booksListBox.TabIndex = 5;
             // 
             // deleteBookButton
@@ -61,6 +62,7 @@ namespace LibraryUI {
             this.deleteBookButton.TabIndex = 7;
             this.deleteBookButton.Text = "Delete selected book";
             this.deleteBookButton.UseVisualStyleBackColor = false;
+            this.deleteBookButton.Click += new System.EventHandler(this.deleteBookButton_Click);
             // 
             // addNewBookButton
             // 
@@ -72,6 +74,7 @@ namespace LibraryUI {
             this.addNewBookButton.TabIndex = 8;
             this.addNewBookButton.Text = "Add new book";
             this.addNewBookButton.UseVisualStyleBackColor = false;
+            this.addNewBookButton.Click += new System.EventHandler(this.addNewBookButton_Click);
             // 
             // AdminForm
             // 
@@ -88,6 +91,7 @@ namespace LibraryUI {
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "AdminForm";
             this.Text = "Admin panel";
+            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.ResumeLayout(false);
 
         }

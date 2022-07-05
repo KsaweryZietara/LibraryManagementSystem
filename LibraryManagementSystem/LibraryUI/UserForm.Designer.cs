@@ -29,7 +29,6 @@ namespace LibraryUI {
             this.returnButton = new System.Windows.Forms.Button();
             this.borrowButton = new System.Windows.Forms.Button();
             this.loginLabel = new System.Windows.Forms.Label();
-            this.refreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // booksListBox
@@ -88,24 +87,12 @@ namespace LibraryUI {
             this.loginLabel.TabIndex = 8;
             this.loginLabel.Text = "login";
             // 
-            // refreshButton
-            // 
-            this.refreshButton.BackColor = System.Drawing.Color.White;
-            this.refreshButton.ForeColor = System.Drawing.Color.Green;
-            this.refreshButton.Location = new System.Drawing.Point(464, 159);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(224, 59);
-            this.refreshButton.TabIndex = 9;
-            this.refreshButton.Text = "Refresh you books";
-            this.refreshButton.UseVisualStyleBackColor = false;
-            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(779, 468);
-            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.borrowButton);
             this.Controls.Add(this.returnButton);
@@ -129,6 +116,5 @@ namespace LibraryUI {
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button borrowButton;
         private System.Windows.Forms.Label loginLabel;
-        private System.Windows.Forms.Button refreshButton;
     }
 }
