@@ -88,11 +88,6 @@ namespace LibraryUI {
                 
                 int indexOfSelected = booksListBox.SelectedIndex;
 
-                LoggedUser.BooksId.Add(Books[indexOfSelected].Id);
-
-                GlobalConfig.Connection.UpdateUser(LoggedUser);
-
-                Books[indexOfSelected].IsBorrowed = true;
                 Books[indexOfSelected].Owner = LoggedUser.Login;
 
                 GlobalConfig.Connection.UpdateBook(Books[indexOfSelected]);

@@ -26,11 +26,6 @@ namespace ClassLibrary.Models {
         public string Category { get; set; }
 
         /// <summary>
-        /// Represents if the book is borrowed.
-        /// </summary>
-        public bool IsBorrowed { get; set; }
-
-        /// <summary>
         /// Represents who borrowed the book.
         /// </summary>
         public string Owner { get; set; }

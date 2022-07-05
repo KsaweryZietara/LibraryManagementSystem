@@ -38,12 +38,7 @@ namespace LibraryUI {
 
                 int indexOfSelected = booksListBox.SelectedIndex;
 
-                LoggedUser.BooksId.RemoveAll(x => x == UserBooks[indexOfSelected].Id);
-
-                GlobalConfig.Connection.UpdateUser(LoggedUser);
-
-                UserBooks[indexOfSelected].IsBorrowed = false;
-                UserBooks[indexOfSelected].Owner = "---";
+                UserBooks[indexOfSelected].Owner = null;
 
                 GlobalConfig.Connection.UpdateBook(UserBooks[indexOfSelected]);
 

@@ -65,20 +65,9 @@ namespace ClassLibrary.DataAccess {
 
             List<BookModel> books = BooksFile.FullFilePath().LoadFile().ConvertToBookModels();
 
-            List<BookModel> userBooks = books.Where(x => user.BooksId.Any(y => y == x.Id)).ToList();
+            List<BookModel> userBooks = books.Where(x => x.Owner == user.Login).ToList();
 
             return userBooks;
-        }
-
-        public void UpdateUser(UserModel user) {
-            
-            List<UserModel> users = UsersFile.FullFilePath().LoadFile().ConvertToUserModels();
-
-            int indexOfUser = users.FindIndex(x => x.Login == user.Login);
-
-            users[indexOfUser] = user;
-
-            users.SaveToUserFile(UsersFile);
         }
 
         public void UpdateBook(BookModel book) {
@@ -96,7 +85,7 @@ namespace ClassLibrary.DataAccess {
 
             List<BookModel> books = BooksFile.FullFilePath().LoadFile().ConvertToBookModels();
 
-            var output = books.Where(x => !x.IsBorrowed).ToList();
+            var output = books.Where(x => x.Owner == null).ToList();
 
             return output;
         }
@@ -121,9 +110,7 @@ namespace ClassLibrary.DataAccess {
 
             book.Id = highestIndex + 1;
 
-            book.IsBorrowed = false;
-
-            book.Owner = "---";
+            book.Owner = null;
 
             books.Add(book);
 

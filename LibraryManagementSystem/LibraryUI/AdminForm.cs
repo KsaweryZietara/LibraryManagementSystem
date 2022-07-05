@@ -38,7 +38,7 @@ namespace LibraryUI {
 
             foreach (BookModel b in Books) {
 
-                string available = b.IsBorrowed ? "Not Available" : "Available";
+                string available = b.Owner != null ? "Not Available" : "Available";
 
                 bookStrings.Add($"{b.Id}  {b.Title}  {b.Author}  {b.Category}  {available}  {b.Owner}");
 
@@ -52,12 +52,6 @@ namespace LibraryUI {
             if (Books.Count > 0) {
 
                 int indexOfSelected = booksListBox.SelectedIndex;
-
-                int indexOfUser = Users.FindIndex(x => x.Login == Books[indexOfSelected].Owner);
-
-                Users[indexOfUser].BooksId.RemoveAll(x => x == Books[indexOfSelected].Id);
-
-                GlobalConfig.Connection.UpdateUser(Users[indexOfUser]);
 
                 Books.RemoveAll(x => x.Id == Books[indexOfSelected].Id);
 

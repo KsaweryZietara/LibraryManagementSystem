@@ -45,20 +45,15 @@ namespace ClassLibrary.DataAccess {
 
                 string[] cols = line.Split(',');
                 
-                if (cols.Length == 7) {
+                if (cols.Length == 6) {
                     
                     UserModel u = new UserModel();
                     u.Login = cols[0];
                     u.Password = cols[1];
-
-                    if (cols[2].Length > 0) {
-                        u.BooksId = cols[2].Split('|').ToList().Select(s => int.Parse(s)).ToList();
-                    }
-
-                    u.FirstName = cols[3];
-                    u.LastName = cols[4];
-                    u.PhoneNumber = cols[5];
-                    u.EmailAddress = cols[6];
+                    u.FirstName = cols[2];
+                    u.LastName = cols[3];
+                    u.PhoneNumber = cols[4];
+                    u.EmailAddress = cols[5];
 
                     output.Add(u);
                 }
@@ -78,18 +73,8 @@ namespace ClassLibrary.DataAccess {
 
             foreach (UserModel u in users) {
 
-                string booksId = "";
+                lines.Add($"{u.Login},{u.Password},{u.FirstName},{u.LastName},{u.PhoneNumber},{u.EmailAddress}");
 
-                foreach (int i in u.BooksId) {
-                    booksId += i;
-                    booksId += '|';
-                }
-
-                if (booksId.Length > 1) {
-                    booksId = booksId.Substring(0, booksId.Length - 1);
-                }
-
-                lines.Add($"{u.Login},{u.Password},{booksId},{u.FirstName},{u.LastName},{u.PhoneNumber},{u.EmailAddress}");
             }
 
             File.WriteAllLines(fileName.FullFilePath(), lines);
@@ -108,7 +93,7 @@ namespace ClassLibrary.DataAccess {
 
                 string[] cols = line.Split(',');
 
-                if (cols.Length == 6) {
+                if (cols.Length == 5) {
 
                     BookModel b = new BookModel();
                     
@@ -116,16 +101,8 @@ namespace ClassLibrary.DataAccess {
                     b.Title = cols[1];
                     b.Author = cols[2];
                     b.Category = cols[3];
-                    
-                    if(cols[4] == "True") {
-                        b.IsBorrowed = true;
-                    }
-                    else {
-                        b.IsBorrowed = false;
-                    }
-
-                    b.Owner = cols[5];
-                    
+                    b.Owner = cols[4] != "---" ? cols[4] : null;
+                
                     output.Add(b);
                 }
             }
@@ -138,8 +115,8 @@ namespace ClassLibrary.DataAccess {
             List<string> lines = new List<string>();
 
             foreach (BookModel b in books) {
-
-                lines.Add($"{b.Id},{b.Title},{b.Author},{b.Category},{b.IsBorrowed},{b.Owner}");
+                string s = b.Owner != null ? b.Owner : "---";
+                lines.Add($"{b.Id},{b.Title},{b.Author},{b.Category},{s}");
             }
 
             File.WriteAllLines(fileName.FullFilePath(), lines);

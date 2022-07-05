@@ -16,11 +16,6 @@ namespace ClassLibrary.Models {
         public string Password { get; set; }
 
         /// <summary>
-        /// Represents books which user borrowed.
-        /// </summary>
-        public List<int> BooksId { get; set; } = new List<int>();
-
-        /// <summary>
         /// Represents user first name.
         /// </summary>
         public string FirstName { get; set; }
@@ -49,10 +44,9 @@ namespace ClassLibrary.Models {
             Password = password;
         }
 
-        public UserModel(string login, string password, List<int> booksId, string firstName, string lastName, string phoneNumber, string emailAddress) {
+        public UserModel(string login, string password, string firstName, string lastName, string phoneNumber, string emailAddress) {
             Login = login;
             Password = password;
-            BooksId = booksId;
             FirstName = firstName;
             LastName = lastName;
             PhoneNumber = phoneNumber;
