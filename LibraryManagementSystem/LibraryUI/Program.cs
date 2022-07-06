@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace LibraryUI {
     static class Program {
         /// <summary>
@@ -14,7 +15,7 @@ namespace LibraryUI {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ClassLibrary.GlobalConfig.InitializeDataConnection(ClassLibrary.DataBase.textFile);
+            ClassLibrary.GlobalConfig.InitializeDataConnection(ClassLibrary.DataBase.mySql);
 
             SignInForm signInForm = new SignInForm();
             Application.Run(signInForm);

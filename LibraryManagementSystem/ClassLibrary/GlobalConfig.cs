@@ -2,6 +2,7 @@
 using ClassLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 
 namespace ClassLibrary {
@@ -17,8 +18,8 @@ namespace ClassLibrary {
                 Connection = new TextFileConnector(); 
             }
             
-            else if (e == DataBase.sql) {
-
+            else if (e == DataBase.mySql) {
+                Connection = new MySqlConnector();
             }
         }
     }

@@ -11,6 +11,6 @@ namespace ClassLibrary {
     /// </summary>
     public enum DataBase {
         textFile,
-        sql
+        mySql
     }
 }
