@@ -18,7 +18,7 @@ namespace ClassLibrary.DataAccess {
 
         List<BookModel> GetBooks();
 
-        void UpdateListOfBooks(List<BookModel> list);
+        void DeleteBook(BookModel book);
 
         List<UserModel> GetUsers();
 

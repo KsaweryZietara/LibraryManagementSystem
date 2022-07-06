@@ -53,9 +53,9 @@ namespace LibraryUI {
 
                 int indexOfSelected = booksListBox.SelectedIndex;
 
-                Books.RemoveAll(x => x.Id == Books[indexOfSelected].Id);
+                GlobalConfig.Connection.DeleteBook(Books[indexOfSelected]);
 
-                GlobalConfig.Connection.UpdateListOfBooks(Books);
+                Books.RemoveAll(x => x.Id == Books[indexOfSelected].Id);
 
                 RefreshListBox();
             }

@@ -15,7 +15,21 @@ namespace ClassLibrary.DataAccess {
         private string myConnectionString = "server=localhost;database=librarymanagementsystem;uid=root;pwd=password;";
 
         public void CreateBook(BookModel book) {
-            throw new NotImplementedException();
+
+            try {
+                book.Owner = null;
+
+                MySqlConnection connection = new MySqlConnection(myConnectionString);
+
+                string sqlQuery = "INSERT INTO books(Title, Author, Category) VALUES(@Title, @Author, @Category)";
+
+                var rowsAffected = connection.Execute(sqlQuery, book);
+                
+            }
+            catch {
+
+            }
+
         }
 
         public void CreateUser(UserModel user) {
@@ -51,7 +65,7 @@ namespace ClassLibrary.DataAccess {
 
                 command.ExecuteNonQuery();
             }
-            catch(MySqlException ex) {
+            catch {
                 string message = "E-mail or Login is already taken.";
                 string title = "Error";
                 MessageBox.Show(message, title);
@@ -60,34 +74,92 @@ namespace ClassLibrary.DataAccess {
         }
 
         public List<BookModel> GetAvailableBooks() {
-            throw new NotImplementedException();
+            
+            try {
+                MySqlConnection connection = new MySqlConnection(myConnectionString);
+
+                var result = connection.Query<BookModel>("get_available_books",
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                return result;
+            }
+            catch {
+                return null;
+            }
         }
 
         public List<BookModel> GetBooks() {
-            throw new NotImplementedException();
+            
+            try {
+                MySqlConnection connection = new MySqlConnection(myConnectionString);
+
+                var result = connection.Query<BookModel>("get_books",
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                return result;
+            }
+            catch {
+                return null;
+            }
         }
 
         public List<BookModel> GetUserBooks(UserModel user) {
 
-            MySqlConnection connection = new MySqlConnection(myConnectionString);
+            try {
+                MySqlConnection connection = new MySqlConnection(myConnectionString);
 
-            var result = connection.Query<BookModel>("get_user_books",
-                    new { p_Owner = user.Login },
-                    commandType: CommandType.StoredProcedure).ToList();
+                var result = connection.Query<BookModel>("get_user_books",
+                        new { p_Owner = user.Login },
+                        commandType: CommandType.StoredProcedure).ToList();
 
-            return result;
+                return result;
+            }
+            catch {
+                return null;
+            }
         }
 
         public List<UserModel> GetUsers() {
-            throw new NotImplementedException();
+            
+            try {
+                MySqlConnection connection = new MySqlConnection(myConnectionString);
+
+                var result = connection.Query<UserModel>("get_users",
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                return result;
+            }
+            catch {
+                return null;
+            }
         }
 
         public void UpdateBook(BookModel book) {
-            throw new NotImplementedException();
+
+            try {
+                MySqlConnection connection = new MySqlConnection(myConnectionString);
+
+                string sql = "UPDATE Books SET Title = @Title, Author = @Author, Category = @Category, Owner = @Owner WHERE Id = @Id;";
+
+                var rowsAffected = connection.Execute(sql, new { Id = book.Id, Title = book.Title, Author = book.Author, Category = book.Category, Owner = book.Owner });
+            }
+            catch {
+
+            }
         }
 
-        public void UpdateListOfBooks(List<BookModel> list) {
-            throw new NotImplementedException();
+        public void DeleteBook(BookModel book) {
+
+            try {
+                MySqlConnection connection = new MySqlConnection(myConnectionString);
+                
+                string sql = "DELETE FROM books WHERE Id = @Id;";
+
+                var rowsAffected = connection.Execute(sql, new { Id = book.Id });
+            }
+            catch {
+
+            }
         }
 
         public UserModel ValidUser(UserModel user) {
@@ -98,28 +170,20 @@ namespace ClassLibrary.DataAccess {
 
                 var result = connection.Query<UserModel>("valid_user", 
                     new { p_Login = user.Login }, 
-                    commandType: CommandType.StoredProcedure).ToList();
+                    commandType: CommandType.StoredProcedure).First();
 
                 UserModel u = null;
 
-                if (result.Count == 0) {
-                    return u;
-                }
-
-                if (user.Password.CheckPassword(result.First().Password)) {
-                    u = result.First();
+                if (user.Password.CheckPassword(result.Password)) {
+                    u = result;
                 }
 
                 return u;
 
             }
-            catch (MySqlException ex) {
-                string message = "E-mail or Login is already taken.";
-                string title = "Error";
-                MessageBox.Show(message, title);
+            catch {
+                return null;
             }
-
-            return null;
         }
     }
 }

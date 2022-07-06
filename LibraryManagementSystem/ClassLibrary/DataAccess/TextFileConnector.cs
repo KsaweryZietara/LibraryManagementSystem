@@ -94,8 +94,13 @@ namespace ClassLibrary.DataAccess {
             return BooksFile.FullFilePath().LoadFile().ConvertToBookModels();
         }
 
-        public void UpdateListOfBooks(List<BookModel> list) {
-            list.SaveToBookFile(BooksFile);
+        public void DeleteBook(BookModel book) {
+
+            List<BookModel> books = GetBooks();
+
+            books.RemoveAll(x => x.Id == book.Id);
+
+            books.SaveToBookFile(BooksFile);
         }
 
         public List<UserModel> GetUsers() {
