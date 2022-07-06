@@ -1,2 +1,2 @@
 # LibraryManagementSystem
-A library management application with SQL and text file databases, developed in C# (WinForms).
+A library management desktop application with MySQL (using Dapper) and text file database, developed in C# (WinForms).
