@@ -35,15 +35,32 @@ namespace ClassLibrary.Models {
         /// </summary>
         public string EmailAddress { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the UserModel class.
+        /// </summary>
         public UserModel() {
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the UserModel class.
+        /// </summary>
+        /// <param name="login">Login of the user.</param>
+        /// <param name="password">Password of the user.</param>
         public UserModel(string login, string password) {
             Login = login;
             Password = password;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the UserModel class.
+        /// </summary>
+        /// <param name="login">Login of the user.</param>
+        /// <param name="password">Password of the user.</param>
+        /// <param name="firstName">First name of the user.</param>
+        /// <param name="lastName">Last name of the user.</param>
+        /// <param name="phoneNumber">Phone number of the user.</param>
+        /// <param name="emailAddress">Email address of the user.</param>
         public UserModel(string login, string password, string firstName, string lastName, string phoneNumber, string emailAddress) {
             Login = login;
             Password = password;

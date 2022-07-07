@@ -30,9 +30,20 @@ namespace ClassLibrary.Models {
         /// </summary>
         public string Owner { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the BookModel class.
+        /// </summary>
         public BookModel() {
         }
 
+        /// <summary>
+        /// /// <summary>
+        /// Initializes a new instance of the BookModel class.
+        /// </summary>
+        /// </summary>
+        /// <param name="title">Title of the book.</param>
+        /// <param name="author">Author of the book.</param>
+        /// <param name="category">Category of the book.</param>
         public BookModel(string title, string author, string category) {
             Title = title;
             Author = author;

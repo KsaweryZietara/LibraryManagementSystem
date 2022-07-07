@@ -23,10 +23,16 @@ namespace LibraryUI {
             "romance",
             "science"};
 
+        /// <summary>
+        /// Initializes a new instance of the NewBookForm class.
+        /// </summary>
         public NewBookForm() {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Creates book model with parameters from text boxes and close the form.
+        /// </summary>
         private void createButton_Click(object sender, EventArgs e) {
             
             if (ValidateForm()) {
@@ -44,6 +50,10 @@ namespace LibraryUI {
             }
         }
 
+        /// <summary>
+        /// Validates whether text box is filled correctly.
+        /// </summary>
+        /// <returns>True if text box is filled correctly, false if not.</returns>
         private bool ValidateForm() {
 
             bool output = true;
@@ -59,6 +69,9 @@ namespace LibraryUI {
             return output;
         }
 
+        /// <summary>
+        /// Initializes the combo box with parameters from array of strings.
+        /// </summary>
         private void NewBookForm_Load(object sender, EventArgs e) {
 
             List<string> categoryStrings = new List<string>();

@@ -17,10 +17,16 @@ namespace LibraryUI {
 
         public List<BookModel> Books { get; set; } = new List<BookModel>();
 
+        /// <summary>
+        /// Initializes a new instance of the AllBooksForm class.
+        /// </summary>
         public AllBooksForm() {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initializes list of books models and refresh the list box.
+        /// </summary>
         private void AllBooksForm_Load(object sender, EventArgs e) {
 
             Books = GlobalConfig.Connection.GetAvailableBooks();
@@ -28,6 +34,10 @@ namespace LibraryUI {
             RefreshListBox(); 
         }
 
+        /// <summary>
+        /// Validates whether text box is filled correctly.
+        /// </summary>
+        /// <returns>True if text box is filled correctly, false if not.</returns>
         private bool ValidateForm() {
 
             bool output = true;
@@ -39,6 +49,9 @@ namespace LibraryUI {
             return output;
         }
 
+        /// <summary>
+        /// Fills list with books models which match the text, from text box, refresh the list box.
+        /// </summary>
         private void searchButton_Click(object sender, EventArgs e) {
 
             if (ValidateForm()) {
@@ -58,6 +71,9 @@ namespace LibraryUI {
             }
         }
 
+        /// <summary>
+        /// Refresh the form list box with books models.
+        /// </summary>
         private void RefreshListBox() {
 
             booksListBox.DataSource = null;
@@ -73,6 +89,9 @@ namespace LibraryUI {
             booksListBox.DataSource = bookStrings;
         }
 
+        /// <summary>
+        /// Clears the text box, initializes list of books models and refresh the list box.
+        /// </summary>
         private void showAllBooksButton_Click(object sender, EventArgs e) {
 
             keyWordText.Text = "";
@@ -82,6 +101,9 @@ namespace LibraryUI {
             RefreshListBox();
         }
 
+        /// <summary>
+        /// Updates the owner of the book and refresh the list box.
+        /// </summary>
         private void borrowButton_Click(object sender, EventArgs e) {
 
             if (Books.Count > 0) {

@@ -12,14 +12,14 @@ using Dapper;
 namespace ClassLibrary.DataAccess {
     class MySqlConnector : IDataConnection {
 
-        private string myConnectionString = "server=localhost;database=librarymanagementsystem;uid=root;pwd=password;";
+        private string MyConnectionString = "server=localhost;database=librarymanagementsystem;uid=root;pwd=password;";
 
         public void CreateBook(BookModel book) {
 
             try {
                 book.Owner = null;
 
-                MySqlConnection connection = new MySqlConnection(myConnectionString);
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
                 string sqlQuery = "INSERT INTO books(Title, Author, Category) VALUES(@Title, @Author, @Category)";
 
@@ -34,7 +34,7 @@ namespace ClassLibrary.DataAccess {
 
         public void CreateUser(UserModel user) {
 
-            MySqlConnection connection = new MySqlConnection(myConnectionString);
+            MySqlConnection connection = new MySqlConnection(MyConnectionString);
             MySqlCommand command = new MySqlCommand();
             
             try {
@@ -76,7 +76,7 @@ namespace ClassLibrary.DataAccess {
         public List<BookModel> GetAvailableBooks() {
             
             try {
-                MySqlConnection connection = new MySqlConnection(myConnectionString);
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
                 var result = connection.Query<BookModel>("get_available_books",
                         commandType: CommandType.StoredProcedure).ToList();
@@ -91,7 +91,7 @@ namespace ClassLibrary.DataAccess {
         public List<BookModel> GetBooks() {
             
             try {
-                MySqlConnection connection = new MySqlConnection(myConnectionString);
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
                 var result = connection.Query<BookModel>("get_books",
                         commandType: CommandType.StoredProcedure).ToList();
@@ -106,7 +106,7 @@ namespace ClassLibrary.DataAccess {
         public List<BookModel> GetUserBooks(UserModel user) {
 
             try {
-                MySqlConnection connection = new MySqlConnection(myConnectionString);
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
                 var result = connection.Query<BookModel>("get_user_books",
                         new { p_Owner = user.Login },
@@ -122,7 +122,7 @@ namespace ClassLibrary.DataAccess {
         public List<UserModel> GetUsers() {
             
             try {
-                MySqlConnection connection = new MySqlConnection(myConnectionString);
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
                 var result = connection.Query<UserModel>("get_users",
                         commandType: CommandType.StoredProcedure).ToList();
@@ -137,7 +137,7 @@ namespace ClassLibrary.DataAccess {
         public void UpdateBook(BookModel book) {
 
             try {
-                MySqlConnection connection = new MySqlConnection(myConnectionString);
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
                 string sql = "UPDATE Books SET Title = @Title, Author = @Author, Category = @Category, Owner = @Owner WHERE Id = @Id;";
 
@@ -151,7 +151,7 @@ namespace ClassLibrary.DataAccess {
         public void DeleteBook(BookModel book) {
 
             try {
-                MySqlConnection connection = new MySqlConnection(myConnectionString);
+                MySqlConnection connection = new MySqlConnection(MyConnectionString);
                 
                 string sql = "DELETE FROM books WHERE Id = @Id;";
 
@@ -164,7 +164,7 @@ namespace ClassLibrary.DataAccess {
 
         public UserModel ValidUser(UserModel user) {
             
-            MySqlConnection connection = new MySqlConnection(myConnectionString);
+            MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
             try {
 

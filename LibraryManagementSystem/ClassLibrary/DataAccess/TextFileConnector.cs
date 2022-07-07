@@ -12,10 +12,7 @@ namespace ClassLibrary.DataAccess {
 
         private const string BooksFile = "BooksFile.csv";
 
-        /// <summary>
-        /// Saves user model to the text file if it is possible.
-        /// </summary>
-        /// <param name="user">User model.</param>
+        
         public void CreateUser(UserModel user) {
 
             List<UserModel> users = UsersFile.FullFilePath().LoadFile().ConvertToUserModels();
@@ -33,11 +30,7 @@ namespace ClassLibrary.DataAccess {
             }
         }
 
-        /// <summary>
-        /// Checks if user with passed login and password exist.  
-        /// </summary>
-        /// <param name="user">User model.</param>
-        /// <returns>User model if the user exist or null, if not.</returns>
+        
         public UserModel ValidUser(UserModel user) {
 
             List<UserModel> users = UsersFile.FullFilePath().LoadFile().ConvertToUserModels();
@@ -56,11 +49,7 @@ namespace ClassLibrary.DataAccess {
             return u;
         } 
 
-        /// <summary>
-        /// Returns the books models which matches the indexes of the user's books indexes.
-        /// </summary>
-        /// <param name="user">User model.</param>
-        /// <returns>List of the user books models which satisfied the condition.</returns>
+        
         public List<BookModel> GetUserBooks(UserModel user) {
 
             List<BookModel> books = BooksFile.FullFilePath().LoadFile().ConvertToBookModels();

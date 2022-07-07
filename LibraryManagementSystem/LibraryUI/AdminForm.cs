@@ -17,10 +17,16 @@ namespace LibraryUI {
 
         public List<UserModel> Users { get; set; } = new List<UserModel>();
 
+        /// <summary>
+        /// Initializes a new instance of the AdminForm class.
+        /// </summary>
         public AdminForm() {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initializes list of books models and users models, refresh the list box.
+        /// </summary>
         private void AdminForm_Load(object sender, EventArgs e) {
             
             Books = GlobalConfig.Connection.GetBooks();
@@ -30,6 +36,9 @@ namespace LibraryUI {
             RefreshListBox();
         }
 
+        /// <summary>
+        /// Refresh the form list box with books models.
+        /// </summary>
         private void RefreshListBox() {
 
             booksListBox.DataSource = null;
@@ -47,6 +56,9 @@ namespace LibraryUI {
             booksListBox.DataSource = bookStrings;
         }
 
+        /// <summary>
+        /// Delete the selected book from list and database, refresh the list box.
+        /// </summary>
         private void deleteBookButton_Click(object sender, EventArgs e) {
             
             if (Books.Count > 0) {
@@ -61,6 +73,11 @@ namespace LibraryUI {
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the NewBookForm class, 
+        /// updates the list of books models and refresh the 
+        /// list box with books models. 
+        /// </summary>
         private void addNewBookButton_Click(object sender, EventArgs e) {
             
             NewBookForm frm = new NewBookForm();

@@ -12,13 +12,13 @@ namespace ClassLibrary {
         /// <summary>
         /// Function initialize type of the data connection for the app.
         /// </summary>
-        /// <param name="e">Enum which represent type of data connection.</param>
-        public static void InitializeDataConnection(DataBase e) {
-            if (e == DataBase.textFile) {
+        /// <param name="db">Enum which represent type of data connection.</param>
+        public static void InitializeDataConnection(DataBase db) {
+            if (db == DataBase.textFile) {
                 Connection = new TextFileConnector(); 
             }
             
-            else if (e == DataBase.mySql) {
+            else if (db == DataBase.mySql) {
                 Connection = new MySqlConnector();
             }
         }

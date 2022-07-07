@@ -17,12 +17,16 @@ namespace LibraryUI {
 
         public List<BookModel> UserBooks { get; set; } = new List<BookModel>();
 
+        /// <summary>
+        /// Initializes a new instance of the UserForm class.
+        /// </summary>
         public UserForm() {
-
             InitializeComponent();
-
         }
 
+        /// <summary>
+        /// Sets the login label to user login, initializes list of user's books models and refresh the list box.
+        /// </summary>
         private void UserForm_Load(object sender, EventArgs e) {
 
             loginLabel.Text = LoggedUser.Login;
@@ -32,6 +36,9 @@ namespace LibraryUI {
             RefreshListBox();
         }
 
+        /// <summary>
+        /// Updates the owner of the selected book, remove it from the list and refresh the list box. 
+        /// </summary>
         private void returnButton_Click(object sender, EventArgs e) {
 
             if (UserBooks.Count > 0) {
@@ -53,6 +60,10 @@ namespace LibraryUI {
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the AllBooksForm class, updates the user's books models 
+        /// and refresh the list box. 
+        /// </summary>
         private void borrowButton_Click(object sender, EventArgs e) {
             
             AllBooksForm frm = new AllBooksForm();
@@ -66,6 +77,9 @@ namespace LibraryUI {
             RefreshListBox();
         }
 
+        /// <summary>
+        /// Refresh the form list box with books models.
+        /// </summary>
         private void RefreshListBox() {
            
             booksListBox.DataSource = null;

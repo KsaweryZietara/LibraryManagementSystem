@@ -12,10 +12,17 @@ using System.Windows.Forms;
 
 namespace LibraryUI {
     public partial class SignUpForm : Form {
+
+        /// <summary>
+        /// Initializes a new instance of the SignUpForm class.
+        /// </summary>
         public SignUpForm() {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Creates the user model and close the form.
+        /// </summary>
         private void signUpButton_Click(object sender, EventArgs e) {
 
             if (ValidateForm()) {
@@ -38,6 +45,11 @@ namespace LibraryUI {
             }
 
         }
+
+        /// <summary>
+        /// Validates whether text box is filled correctly.
+        /// </summary>
+        /// <returns>True if text box is filled correctly, false if not.</returns>
         private bool ValidateForm() {
 
             bool output = true;

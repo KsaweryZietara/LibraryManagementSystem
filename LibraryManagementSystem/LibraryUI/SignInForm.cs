@@ -15,10 +15,16 @@ namespace LibraryUI {
 
         public UserModel LoggedUser { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the SignInForm class.
+        /// </summary>
         public SignInForm() {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Validates the login and password form text boxes, if they are correct, set the LoggedUser property and close the form.
+        /// </summary>
         private void loginButton_Click(object sender, EventArgs e) {
 
             if (ValidateForm()) {
@@ -51,6 +57,10 @@ namespace LibraryUI {
 
         }
 
+        /// <summary>
+        /// Validates whether text box is filled correctly.
+        /// </summary>
+        /// <returns>True if text box is filled correctly, false if not.</returns>
         private bool ValidateForm() {
 
             bool output = true;
@@ -66,6 +76,9 @@ namespace LibraryUI {
             return output;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the SignInForm class.
+        /// </summary>
         private void signUpButton_Click(object sender, EventArgs e) {
 
             SignUpForm frm = new SignUpForm();
